@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,12 +56,20 @@ public class Entries extends AppCompatActivity {
     }
 
     public void Save(View view) throws IOException {
+        EditText et = (EditText) findViewById(R.id.FIleName);
+        String fileName = ((EditText) findViewById(R.id.FIleName)).getText().toString();
+        if (fileName.equals(""))
+        {
+            Toast.makeText(Entries.this, "Укажите название файла", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (!Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED))
             return;
         File sdPath = Environment.getExternalStoragePublicDirectory(Environment.MEDIA_MOUNTED);
         sdPath.mkdirs();
-        File sdFile = new File(sdPath, "result.txt");
+        File sdFile = new File(sdPath, fileName + ".txt");
         BufferedWriter bw = new BufferedWriter(new FileWriter(sdFile));
         bw.write((String) result.getText());
         bw.close();

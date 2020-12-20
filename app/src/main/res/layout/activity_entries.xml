@@ -10,7 +10,7 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="300dp"
-        android:layout_height="450dp"
+        android:layout_height="400dp"
         android:layout_marginTop="40dp"
         android:background="#D0D0D0"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +58,19 @@
         android:text="Сохранить результат"
         android:textSize="14sp"
         app:backgroundTint="#808080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/FIleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:ems="10"
+        android:gravity="clip_vertical|center_vertical"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
