@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity{
                         newContentValues.put(DBHelper.KEY_ITEM_SCAN, cursor.getString(itemScanIndex));
                         newContentValues.put(DBHelper.KEY_COUNT, cursor.getInt(countIndex) + 1);
                         dataBase.update(dbHelper.TABLE_INVENTORY, newContentValues, "_id=" + cursor.getInt(idIndex), null);
+
+                        Toast.makeText(MainActivity.this, "Запись сохранена", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 while(cursor.moveToNext());

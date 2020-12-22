@@ -44,19 +44,18 @@ public class Entries extends AppCompatActivity {
             int itemIndex = cursor.getColumnIndex(DBHelper.KEY_ITEM_SCAN);
             int countIndex = cursor.getColumnIndex(DBHelper.KEY_COUNT);
 
-            do {
+            do
                 result.setText(result.getText() + "id = " + cursor.getInt(idIndex) +
                         ", код кабинета = " + cursor.getString(cabinetIndex) +
                         ", код предмета = " + cursor.getString(itemIndex) +
                         ", количество = " + cursor.getInt(countIndex) + "\n" + "\n");
-            } while(cursor.moveToNext());
+            while(cursor.moveToNext());
         }
 
         cursor.close();
     }
 
     public void Save(View view) throws IOException {
-        EditText et = (EditText) findViewById(R.id.FIleName);
         String fileName = ((EditText) findViewById(R.id.FIleName)).getText().toString();
         if (fileName.equals(""))
         {
